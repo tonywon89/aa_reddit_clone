@@ -1,7 +1,7 @@
 <form action="<%= action %>" method="post">
   <%= render "shared/auth_token" %>
   <label>Email
-    <input type="text" name= "<%= name %>[email]">
+    <input type="text" name= "<%= name %>[email]" value="<%= user.email %>">
   </label>
   <br>
   <label>Password

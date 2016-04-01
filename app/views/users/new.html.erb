@@ -1,5 +1,6 @@
 <h1>Sign Up!</h1>
 <%= render "shared/sign_in_form",
     action: users_url,
-    name: "users",
+    user: @user,
+    name: "user",
     submit_value: "Sign Up!" %>
