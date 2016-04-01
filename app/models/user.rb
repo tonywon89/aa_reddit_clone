@@ -17,6 +17,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 4, allow_nil: true }
 
   after_initialize :ensure_session_token
+
+  has_many :moderated_subs,
+      foreign_key: :moderator_id,
+      class_name: :Sub,
+      inverse_of: :moderator
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

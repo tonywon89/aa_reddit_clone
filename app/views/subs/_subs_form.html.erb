@@ -1,0 +1,21 @@
+<% action = sub_forum.persisted? ? sub_url(sub_forum) : subs_url %>
+<% method = sub_forum.persisted? ? "patch" : "post" %>
+<% submit_text = sub_forum.persisted? ? "Update" : "Create" %>
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <%= render "shared/auth_token" %>
+  <label>Sub ReadIt Title
+    <input type="text"
+           name="sub_forum[title]"
+           value="<%= sub_forum.title %>">
+  </label>
+  <br>
+  <label>Description of Sub ReadIt <br>
+    <textarea name="sub_forum[description]" rows="8" cols="40">
+      <%= sub_forum.description %>
+    </textarea>
+  </label>
+  <br>
+  <input type="submit" value="<%= submit_text %> Sub ReadIt">
+
+</form>

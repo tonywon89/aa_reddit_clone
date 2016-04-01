@@ -1,2 +1,8 @@
-<h1>Subs#show</h1>
-<p>Find me in app/views/subs/show.html.erb</p>
+<h1> Sub ReadIt: <%= @sub.title %> </h1>
+<p> Description: <%= @sub.description %> </p>
+<br><br>
+
+<%  if current_user.id == @sub.moderator_id %>
+  <%= link_to "Edit", edit_sub_url(@sub) %>
+<% end %>
+<p>moderated by: <%= @sub.moderator.email %> </p>
